@@ -34,6 +34,12 @@ namespace proyecto24BM.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult Crear()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
