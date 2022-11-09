@@ -41,7 +41,7 @@
                                     <td>@Html.DisplayFor(x => item.Roles.Nombre)</td>
                                     <td>
                                         <a class="btn btn-warning" asp-action="Editar" asp-route-id=@item.PkUsuario><i class="fa-regular fa-pen-to-square"></i>Editar</a>
-                                        <a class="btn btn-danger" asp-action="Editar" asp-route-id=@item.PkUsuario><i class="fa-solid fa-trash"></i>Eliminar</a>
+                                        <a class="btn btn-danger" asp-action="Eliminar" asp-route-id=@item.PkUsuario><i class="fa-solid fa-trash"></i>Eliminar</a>
                                     </td>
                                 </tr>
                             }

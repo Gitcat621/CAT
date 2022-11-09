@@ -25,7 +25,7 @@ namespace proyecto24BM.Controllers
         public async Task<IActionResult> Index()
         {
             var response = await _context.usuarios.Include(z => z.Roles).ToListAsync();
-            
+
             return View(response);
         }
 
@@ -38,6 +38,50 @@ namespace proyecto24BM.Controllers
         public IActionResult Crear()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CrearUsuario(usuario request)
+        {
+            try
+            {
+                if (request != null)
+                {
+                    usuario usuario = new usuario();
+                    usuario.Nombre = request.Nombre;
+                    usuario.User = request.User;
+                    usuario.Password = request.Password;
+                    usuario.Fkrol = 1;
+
+                    _context.usuarios.Add(usuario);
+                    await _context.SaveChangesAsync();
+
+                    return RedirectToAction(nameof(Index));
+                }
+                return View();
+            } catch (Exception ex)
+            {
+                throw new Exception("Errors papu " + ex.Message);
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Editar (int? id)
+        {
+            if(id == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                var usuario = _context.usuarios.Find(id);
+                if (usuario == null)
+                {
+                    return NotFound();
+                }
+                else
+                    return View(usuario);
+            }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

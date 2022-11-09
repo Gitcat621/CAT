@@ -1,6 +1,6 @@
 ﻿@model proyecto24BM.Models.usuario
 @{
-	ViewData["Title"] = "Crear usuario";
+	ViewData["Title"] = "Editar usuario";
 }
 
 <div class="container-fluid">
@@ -9,8 +9,11 @@
 			<div class="card-header bg-dark" >
 				<h1 class="text-white">@ViewData["Title"]</h1>
 			</div>
+
 			<div class="card-body">
 				<form asp-action="CrearUsuario" method="post">
+
+					<input type="hidden" asp-for="PkUsuario"/>
 					<div class="form-group">
 						<label asp-for="Nombre" class="Control-label"></label>
 						<input asp-for="Nombre" class="form-control" placeholder="Ingresa nombre" required/>
