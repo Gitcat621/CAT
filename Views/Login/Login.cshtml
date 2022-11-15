@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<H1>LOGIN</H1>
+  <div class="mb-3 row">
+    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="Email" required>
+    </div>
+  </div>
+  <div class="mb-3 row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="Password" required>
+    </div>
+    <div class="col-sm-10">
+        <button id="Btn_login">INICIAR SESION</button>
+    </div>
+  </div>
+
+ <script>  
+    $(Document).ready(function(){
+        $("#Btn_login").click(function(){
+            alert("#Email").text()
+
+        })
+
+
+    });
+ </script>

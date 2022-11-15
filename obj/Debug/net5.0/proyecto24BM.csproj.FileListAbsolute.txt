@@ -71,3 +71,4 @@ C:\Users\Upqroo\source\repos\proyecto24BM\obj\Debug\net5.0\proyecto24BM.genrunti
 C:\Users\Upqroo\source\repos\proyecto24BM\obj\Debug\net5.0\ref\proyecto24BM.dll
 C:\Users\Upqroo\source\repos\proyecto24BM\obj\Debug\net5.0\Razor\Views\Home\Crear.cshtml.g.cs
 C:\Users\Upqroo\source\repos\proyecto24BM\obj\Debug\net5.0\Razor\Views\Home\Editar.cshtml.g.cs
+C:\Users\Upqroo\source\repos\proyecto24BM\obj\Debug\net5.0\Razor\Views\Login\Login.cshtml.g.cs

@@ -66,9 +66,9 @@ namespace proyecto24BM.Controllers
         }
 
         [HttpGet]
-        public IActionResult Editar (int? id)
+        public IActionResult Editar(int? id)
         {
-            if(id == null)
+            if (id == null)
             {
                 return NotFound();
             }
@@ -83,6 +83,20 @@ namespace proyecto24BM.Controllers
                     return View(usuario);
             }
         }
+
+        [HttpGet]
+        public IActionResult Eliminar(int? id)
+        {
+            var usuario = _context.usuarios.Find(id);
+
+            _context.Remove(usuario);
+
+            _context.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
+
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
