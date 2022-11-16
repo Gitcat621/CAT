@@ -23,16 +23,16 @@ namespace proyecto24BM.Controllers
         {
             try
             {
-                var response = _context.usuarios.Where(x => x.User == user && x.Password == Password);
+                var response = _context.usuarios.Where(x => x.User == user && x.Password == Password).ToList();
                 if(response.Count() > 0)
                 {
                     //se va a logear
-                    return Json(new { Succes = true});
+                    return Json(new { success = true});
                 }
                 else
                 {
                     //Errors
-                    return Json(new { Succes = false });
+                    return Json(new { success = false });
                 }
             }
             catch (Exception ex)
