@@ -9,8 +9,8 @@ using proyecto24BM.Context;
 namespace proyecto24BM.Migrations
 {
     [DbContext(typeof(ApplicationDdContext))]
-    [Migration("20221026161519_example")]
-    partial class example
+    [Migration("20221118155714_Example")]
+    partial class Example
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -19,6 +19,27 @@ namespace proyecto24BM.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("proyecto24BM.Models.Articulos", b =>
+                {
+                    b.Property<int>("PkArticulo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Descripcion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nombre")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Urlimg")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("PkArticulo");
+
+                    b.ToTable("articulos");
+                });
 
             modelBuilder.Entity("proyecto24BM.Models.roles", b =>
                 {

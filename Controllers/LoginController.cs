@@ -19,6 +19,7 @@ namespace proyecto24BM.Controllers
             return View();
         }
 
+        [HttpPost]
         public JsonResult LoginUser(string user, string Password)
         {
             try

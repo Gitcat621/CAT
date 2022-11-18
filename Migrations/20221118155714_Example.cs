@@ -2,10 +2,25 @@
 
 namespace proyecto24BM.Migrations
 {
-    public partial class example : Migration
+    public partial class Example : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "articulos",
+                columns: table => new
+                {
+                    PkArticulo = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Urlimg = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_articulos", x => x.PkArticulo);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Roles",
                 columns: table => new
@@ -49,6 +64,9 @@ namespace proyecto24BM.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "articulos");
+
             migrationBuilder.DropTable(
                 name: "usuarios");
 
