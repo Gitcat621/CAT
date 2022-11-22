@@ -1,11 +1,12 @@
 ﻿@model IEnumerable<proyecto24BM.Models.Articulos>
 @{
-    ViewData["Title"] = "Articulos";
+    ViewData["Title"] = "Index";
+    Layout = "_LayoutDashboard";
 }
 
 <div class="row">
     <div class="offset-9 col-3 mb-3">
-        <a asp-action="Crear" asp-controller="Home" class="btn btn-success" d-block mx-auto btn-lg> <i class="fa-solid fa-user"></i> Nuevo Usuario</a>
+        <a asp-action="Crear" asp-controller="Articulos" class="btn btn-success" d-block mx-auto btn-lg> <i class="fa-solid fa-user"></i> Nuevo Articulo</a>
     </div>
 </div>
 
