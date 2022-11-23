@@ -19,7 +19,7 @@ namespace proyecto24BM.Controllers
             _context = context;
         }
 
-        SqlConnection connection = new SqlConnection("Data Source = LAPTOP-1TJ137V4; initial catalog = proyecto24BM; Integrated Security = true;");
+        SqlConnection connection = new SqlConnection("Data Source = DESKTOP-GBA3LGV; initial catalog = proyecto24BM; Integrated Security = true;");
         //LAPTOP-1TJ137V4  DESKTOP-GBA3LGV
         public async Task<IActionResult> Index()
         {

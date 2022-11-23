@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using proyecto24BM.Context;
 using System;
 using System.Linq;
@@ -24,11 +25,19 @@ namespace proyecto24BM.Controllers
         {
             try
             {
-                var response = _context.usuarios.Where(x => x.User == user && x.Password == Password).ToList();
-                if(response.Count() > 0)
+                //var response = _context.usuarios.Where(x => x.User == user && x.Password == Password).ToList();
+
+                var response = _context.usuarios.Include(z => z.Roles).FirstOrDefault
+                    (x => x.User == user && x.Password == Password);
+
+                if (response != null)
                 {
-                    //se va a logear
-                    return Json(new { success = true});
+                    if (response.Roles.Nombre == "Admin")
+                    {
+                        //se va a logear
+                        return Json(new { success = true, admin = true });
+                    }
+                    return Json(new { success = true, admin = false });
                 }
                 else
                 {

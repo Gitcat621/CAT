@@ -29,6 +29,13 @@ namespace proyecto24BM.Controllers
             return View(response);
         }
 
+        public async Task<IActionResult> IndexCopia()
+        {
+            var response = await _context.usuarios.Include(z => z.Roles).ToListAsync();
+
+            return View(response);
+        }
+
         public IActionResult Privacy()
         {
             return View();
