@@ -1,6 +1,6 @@
-﻿@model proyecto24BM.Models.usuario
+﻿@model proyecto24BM.Models.Articulos
 @{
-	ViewData["Title"] = "Crear usuario";
+	ViewData["Title"] = "Crear";
 	Layout = "_LayoutDashboard";
 }
 
@@ -11,20 +11,20 @@
 				<h1 class="text-white">@ViewData["Title"]</h1>
 			</div>
 			<div class="card-body">
-				<form asp-action="CrearUsuario" method="post">
+				<form asp-action="CrearArticulo" method="post">
 					<div class="form-group">
 						<label asp-for="Nombre" class="Control-label"></label>
 						<input asp-for="Nombre" class="form-control" placeholder="Ingresa nombre" required/>
 					</div>
 
 					<div class="form-group">
-						<label asp-for="User" class="Control-label"></label>
-						<input asp-for="User" class="form-control" placeholder="Ingresa user" required/>
+						<label asp-for="Descripcion" class="Control-label"></label>
+						<input asp-for="Descripcion" class="form-control" placeholder="Ingresa descripcion" required/>
 					</div>
 
 					<div class="form-group">
-						<label asp-for="Password" class="Control-label"></label>
-						<input asp-for="Password" class="form-control" placeholder="Ingresa password" required/>
+						<label asp-for="Urlimg" class="Control-label"></label>
+						<input asp-for="Urlimg" class="form-control" placeholder="Ingresa url" required/>
 					</div>
 
 					<div class="form-group mt-3">
@@ -32,7 +32,7 @@
 
 					</div>
 				</form>
-					<a asp-controller="Home" asp-action="Index" > Volver</a>
+					<a asp-controller="Articulos" asp-action="Index" > Volver</a>
 
 			</div>
 

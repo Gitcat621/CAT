@@ -36,7 +36,11 @@
                                 <tr>
                                     <td>@Html.DisplayFor(x => item.Nombre)</td>
                                     <td>@Html.DisplayFor(x => item.Descripcion)</td>
-                                    <td>@Html.DisplayFor(x => item.Urlimg)</td>
+                                    <td> <img src="@Html.DisplayFor(x => item.Urlimg)" width="50"/> </td>
+                                     <td>
+                                        <a class="btn btn-warning" asp-action="Editar" asp-route-id=@item.PkArticulo><i class="fa-regular fa-pen-to-square"></i>Editar</a>
+                                        <a class="btn btn-danger" asp-action="Eliminar" asp-route-id=@item.PkArticulo><i class="fa-solid fa-trash"></i>Eliminar</a>
+                                    </td>
                                 </tr>
                             }
                         </tbody>

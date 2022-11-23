@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using proyecto24BM.Context;
 using proyecto24BM.Models;
 using System;
+using System.Data;
 using System.Threading.Tasks;
 
 namespace proyecto24BM.Controllers
@@ -18,7 +19,8 @@ namespace proyecto24BM.Controllers
             _context = context;
         }
 
-        SqlConnection connection = new SqlConnection("Data Source = DESKTOP-GBA3LGV; initial catalog = proyecto24BM; Integrated Security = true;");
+        SqlConnection connection = new SqlConnection("Data Source = LAPTOP-1TJ137V4; initial catalog = proyecto24BM; Integrated Security = true;");
+        //LAPTOP-1TJ137V4  DESKTOP-GBA3LGV
         public async Task<IActionResult> Index()
         {
             /*try
@@ -34,14 +36,20 @@ namespace proyecto24BM.Controllers
             return View(response);
         }
 
+        [HttpGet]
+        public IActionResult Crear()
+        {
+            return View();
+        }
+
         [HttpPost]
-        public async Task<IActionResult> Crear(Articulos response)
+        public async Task<IActionResult> CrearArticulo(Articulos response)
         {
             try
             {
                 if (response != null)
                 {
-                    await connection.QueryAsync<Articulos>("spInsertArticulo", new { response.Nombre, response.Descripcion, response.Urlimg });
+                    await connection.QueryAsync<Articulos>("spInsertArticulo", new { response.Nombre, response.Descripcion, response.Urlimg }, commandType: CommandType.StoredProcedure);
                     return RedirectToAction(nameof(Index));
                 }
                 return View();
@@ -50,6 +58,38 @@ namespace proyecto24BM.Controllers
             {
                 throw new Exception("Errors papu " + ex.Message);
             }
+        }
+
+        [HttpGet]
+        public IActionResult Editar(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                var articulo = _context.articulos.Find(id);
+                if (articulo == null)
+                {
+                    return NotFound();
+                }
+                else
+                    return View(articulo);
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Eliminar(int? id)
+        {
+            var articulos = _context.articulos.Find(id);
+
+            _context.Remove(articulos);
+
+            _context.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
+
         }
     }
 }
